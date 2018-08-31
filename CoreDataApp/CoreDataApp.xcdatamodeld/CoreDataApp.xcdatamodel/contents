@@ -1,4 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14133" systemVersion="17E199" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="EmpContact" representedClassName="EmpContact" syncable="YES" codeGenerationType="class">
+        <attribute name="empemail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="emplocation" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="empname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="empnumber" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="useraccount" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserAccount" inverseName="empcontact" inverseEntity="UserAccount" syncable="YES"/>
+    </entity>
+    <entity name="NewEntity" representedClassName="NewEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="addImage" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="captionwithImage" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Testapp" representedClassName="Testapp" syncable="YES" codeGenerationType="class">
+        <attribute name="imageCaption" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="selectedimage" optional="YES" attributeType="Binary" syncable="YES"/>
+    </entity>
+    <entity name="UserAccount" representedClassName="UserAccount" syncable="YES" codeGenerationType="class">
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="empcontact" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EmpContact" inverseName="useraccount" inverseEntity="EmpContact" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="EmpContact" positionX="475" positionY="75" width="128" height="118"/>
+        <element name="UserAccount" positionX="927" positionY="155" width="128" height="88"/>
+        <element name="Testapp" positionX="702" positionY="144" width="128" height="75"/>
+        <element name="NewEntity" positionX="693" positionY="153" width="128" height="75"/>
+    </elements>
 </model>
