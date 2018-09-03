@@ -39,6 +39,7 @@
 - (IBAction)employeeList:(id)sender;
 - (IBAction)viewPDF:(id)sender;
 - (IBAction)uploadPDF:(id)sender;
+- (IBAction)scrollView_btn:(id)sender;
 
 @end
 

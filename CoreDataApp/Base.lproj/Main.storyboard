@@ -127,11 +127,19 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pdy-gG-hY5">
-                                <rect key="frame" x="104" y="378" width="153" height="30"/>
+                                <rect key="frame" x="9" y="378" width="153" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="UPLOAD PDF"/>
                                 <connections>
                                     <action selector="uploadPDF:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fdb-hX-36c"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="deV-BA-eAU">
+                                <rect key="frame" x="199" y="378" width="176" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="SCROLL VIEW"/>
+                                <connections>
+                                    <action selector="scrollView_btn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gn0-wB-X9u"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -279,6 +287,30 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pha-ea-D0K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1730.4000000000001" y="781.25937031484261"/>
+        </scene>
+        <!--Scroll View Controller-->
+        <scene sceneID="VMQ-Ua-g4q">
+            <objects>
+                <viewController storyboardIdentifier="scrollViewVC" id="Mr5-eX-1BM" customClass="ScrollViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dlO-oE-QyC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Zy-aX-DIv">
+                                <rect key="frame" x="12" y="113" width="350" height="534"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="O5h-mQ-f4K"/>
+                    </view>
+                    <connections>
+                        <outlet property="scrollView" destination="5Zy-aX-DIv" id="wlF-r6-7I2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pS7-dn-Vq3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2373.5999999999999" y="781.25937031484261"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8IJ-Dc-xOt">

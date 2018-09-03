@@ -12,6 +12,7 @@
 #import "PdfViewController.h"
 #import "CaptionForPhotoViewController.h"
 #import "UploadPDFViewController.h"
+#import "ScrollViewController.h"
 
 API_AVAILABLE(ios(10.0))
 @interface ViewController ()
@@ -256,6 +257,12 @@ API_AVAILABLE(ios(10.0))
     
     
     
+}
+
+- (IBAction)scrollView_btn:(id)sender {
+    
+    ScrollViewController *pdfVC=[self.storyboard instantiateViewControllerWithIdentifier:@"scrollViewVC"];
+    [self.navigationController pushViewController:pdfVC animated:YES];
 }
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {

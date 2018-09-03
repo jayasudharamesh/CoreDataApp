@@ -13,6 +13,7 @@
 {
     NSArray *arr_days,*arr_status,*arr_names;
     NewTableViewCell *tempcell;
+    NSMutableDictionary *dict;
 }
 
 @end
@@ -28,6 +29,7 @@
     arr_status=[[NSArray alloc]initWithObjects:@"resigned",@"inactive", nil];
     tblObj.delegate=self;
     tblObj.dataSource=self;
+    dict=[[NSMutableDictionary alloc]init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -72,10 +74,21 @@
         tempcell.status_btn.delegate=self;
         tempcell.days_btn.tag=indexPath.row;
         tempcell.status_btn.tag=indexPath.row;
+        tempcell.name_Lbl.tag=indexPath.row;
+        
         tempcell.name_Lbl.text=[arr_names objectAtIndex:indexPath.row];
         
          [tempcell.btn_days addTarget:self action:@selector(selectedDays:) forControlEvents:UIControlEventTouchUpInside];
         [tempcell.btn_status addTarget:self action:@selector(selectedstatus:) forControlEvents:UIControlEventTouchUpInside];
+        
+        if ([dict valueForKey: tempcell.name_Lbl.text] != nil) {
+            tempcell.btn_days.titleLabel.text = [dict valueForKey: tempcell.name_Lbl.text];
+            
+        } else {
+            
+            tempcell.btn_days.titleLabel.text=@"";
+        }
+        
         
         return tempcell;
     }else if (tableView==tableViewList)
@@ -100,7 +113,11 @@
     {
         if (selectBtn==0) {
             selectBtn=0;
+            
+            NSString *str=[arr_days objectAtIndex:indexPath.row];
             tempcell.days_btn.text=[arr_days objectAtIndex:indexPath.row];
+            
+            [dict setObject:str forKey:tempcell.name_Lbl.text];
             
         }else
         {
