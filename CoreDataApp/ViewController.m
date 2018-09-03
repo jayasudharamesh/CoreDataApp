@@ -11,6 +11,7 @@
 #import "EmployeeListViewController.h"
 #import "PdfViewController.h"
 #import "CaptionForPhotoViewController.h"
+#import "UploadPDFViewController.h"
 
 API_AVAILABLE(ios(10.0))
 @interface ViewController ()
@@ -57,7 +58,7 @@ API_AVAILABLE(ios(10.0))
     fetchResults_btn.hidden=YES;
     deleteData_btn.hidden=YES;
     updateData_btn.hidden=YES;
-    emplistData_btn.hidden=NO;
+    emplistData_btn.hidden=YES;
     pdfData_btn.hidden=YES;
    
 
@@ -250,6 +251,8 @@ API_AVAILABLE(ios(10.0))
     //http://52.74.228.143:808/CustomerServices/CustomerService.svc/addpolicy?EmpId=ADMTEST&FolderName=Incentive&PolicyName=sdsh&Policypath=https://s3-ap-southeast-1.amazonaws.com/inedge/user/attachments/Q2aLzEa6-421800_31_2017_6788DiscoverInsurance.pdf&CustomerId=TEST&Status=0&IsActive=true
     
     
+    UploadPDFViewController *pdfVC=[self.storyboard instantiateViewControllerWithIdentifier:@"uploadPDF"];
+    [self.navigationController pushViewController:pdfVC animated:YES];
     
     
     

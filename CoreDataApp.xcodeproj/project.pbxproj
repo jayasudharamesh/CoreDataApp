@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E3C64A2213D4B4100BCD3E7 /* UploadPDFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3C64A1213D4B4100BCD3E7 /* UploadPDFViewController.m */; };
+		5E3C64A6213D4B8000BCD3E7 /* NewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3C64A4213D4B8000BCD3E7 /* NewTableViewCell.m */; };
+		5E3C64A7213D4B8000BCD3E7 /* NewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E3C64A5213D4B8000BCD3E7 /* NewTableViewCell.xib */; };
 		5E56B715210F17EE00096062 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E56B714210F17EE00096062 /* AppDelegate.m */; };
 		5E56B718210F17EE00096062 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E56B717210F17EE00096062 /* ViewController.m */; };
 		5E56B71B210F17EE00096062 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E56B719210F17EE00096062 /* Main.storyboard */; };
@@ -59,6 +62,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5E3C64A0213D4B4100BCD3E7 /* UploadPDFViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UploadPDFViewController.h; sourceTree = "<group>"; };
+		5E3C64A1213D4B4100BCD3E7 /* UploadPDFViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UploadPDFViewController.m; sourceTree = "<group>"; };
+		5E3C64A3213D4B8000BCD3E7 /* NewTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewTableViewCell.h; sourceTree = "<group>"; };
+		5E3C64A4213D4B8000BCD3E7 /* NewTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewTableViewCell.m; sourceTree = "<group>"; };
+		5E3C64A5213D4B8000BCD3E7 /* NewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewTableViewCell.xib; sourceTree = "<group>"; };
 		5E56B710210F17EE00096062 /* CoreDataApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E56B713210F17EE00096062 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5E56B714210F17EE00096062 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -191,6 +199,11 @@
 				5E56B717210F17EE00096062 /* ViewController.m */,
 				5EA61126212A821700762C4F /* CaptionForPhotoViewController.h */,
 				5EA61127212A821700762C4F /* CaptionForPhotoViewController.m */,
+				5E3C64A0213D4B4100BCD3E7 /* UploadPDFViewController.h */,
+				5E3C64A1213D4B4100BCD3E7 /* UploadPDFViewController.m */,
+				5E3C64A3213D4B8000BCD3E7 /* NewTableViewCell.h */,
+				5E3C64A4213D4B8000BCD3E7 /* NewTableViewCell.m */,
+				5E3C64A5213D4B8000BCD3E7 /* NewTableViewCell.xib */,
 				5E56B719210F17EE00096062 /* Main.storyboard */,
 				5E56B71F210F17F200096062 /* Assets.xcassets */,
 				5E56B721210F17F200096062 /* LaunchScreen.storyboard */,
@@ -448,6 +461,7 @@
 			files = (
 				5E56B723210F17F200096062 /* LaunchScreen.storyboard in Resources */,
 				5E56B720210F17F200096062 /* Assets.xcassets in Resources */,
+				5E3C64A7213D4B8000BCD3E7 /* NewTableViewCell.xib in Resources */,
 				5EA61135212A82B900762C4F /* Resource in Resources */,
 				5E56B71B210F17EE00096062 /* Main.storyboard in Resources */,
 				5EA61132212A82B900762C4F /* BRPhotoPicker.storyboard in Resources */,
@@ -477,6 +491,7 @@
 			files = (
 				5EA61163212A844A00762C4F /* UIImage+PECrop.m in Sources */,
 				5EA61150212A841B00762C4F /* BRPreviewCell.m in Sources */,
+				5E3C64A2213D4B4100BCD3E7 /* UploadPDFViewController.m in Sources */,
 				5EA6114D212A841500762C4F /* BR_ImageInfo+Image.m in Sources */,
 				5EA6113E212A83D400762C4F /* BRPhotoPickerController.m in Sources */,
 				5EA61128212A821700762C4F /* CaptionForPhotoViewController.m in Sources */,
@@ -496,6 +511,7 @@
 				5EA6113B212A82F500762C4F /* BR_ImageInfo.m in Sources */,
 				5EA61136212A82B900762C4F /* BRImagePicker.m in Sources */,
 				5EA61161212A844A00762C4F /* PECropRectView.m in Sources */,
+				5E3C64A6213D4B8000BCD3E7 /* NewTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

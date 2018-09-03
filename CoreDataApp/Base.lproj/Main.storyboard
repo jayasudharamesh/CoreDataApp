@@ -127,8 +127,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pdy-gG-hY5">
-                                <rect key="frame" x="69" y="617" width="101" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="104" y="378" width="153" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="UPLOAD PDF"/>
                                 <connections>
                                     <action selector="uploadPDF:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fdb-hX-36c"/>
@@ -188,20 +188,30 @@
             </objects>
             <point key="canvasLocation" x="1728.8" y="133.5832083958021"/>
         </scene>
-        <!--View Controller-->
+        <!--UploadPDF View Controller-->
         <scene sceneID="7P5-rN-dOj">
             <objects>
-                <viewController id="82L-RQ-8if" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="uploadPDF" id="82L-RQ-8if" customClass="UploadPDFViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hhY-b1-J2g">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cRU-lZ-Eyj">
+                                <rect key="frame" x="16" y="124" width="343" height="425"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="xtt-Nf-Rxd"/>
                     </view>
+                    <connections>
+                        <outlet property="tblObj" destination="cRU-lZ-Eyj" id="Xp0-3f-EnR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mDy-xT-aqh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2369" y="134"/>
+            <point key="canvasLocation" x="2368.8000000000002" y="133.5832083958021"/>
         </scene>
         <!--Pdf View Controller-->
         <scene sceneID="iTD-ru-VkP">
