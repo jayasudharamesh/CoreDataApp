@@ -42,8 +42,21 @@
             label.text = [array objectAtIndex:i];
             label.backgroundColor = [UIColor clearColor];
             
-            label.frame = CGRectMake(10, (i*30)+10, 100, 30); // here height is 30 and width is 100;
+            label.frame = CGRectMake(10, (i*30)+40, 100, 30); // here height is 30 and width is 100;
             [scrollView addSubview:label];
+            
+            button1=[[UIButton alloc]initWithFrame:CGRectMake(10, (i*30)+60, 100, 30)];
+            button1.titleLabel.font = [UIFont systemFontOfSize:13.0];
+            [button1 addTarget:self action:@selector(clickButton1:) forControlEvents:UIControlEventTouchUpInside];
+            [button1 setBackgroundColor:[UIColor lightGrayColor]];
+            [scrollView addSubview:button1];
+            
+            button2=[[UIButton alloc]initWithFrame:CGRectMake(10, (i*30)+60, 100, 30)];
+            button2.titleLabel.font = [UIFont systemFontOfSize:13.0];
+            [button2 addTarget:self action:@selector(clickButton2:) forControlEvents:UIControlEventTouchUpInside];
+            [button2 setBackgroundColor:[UIColor lightGrayColor]];
+            [scrollView addSubview:button2];
+            
         }
  
    /*
