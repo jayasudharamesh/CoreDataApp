@@ -9,11 +9,26 @@
 #import "UploadPDFViewController.h"
 #import "NewTableViewCell.h"
 
-@interface UploadPDFViewController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
+@interface UploadPDFViewController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UIAlertViewDelegate,UIDocumentPickerDelegate, UIDocumentMenuDelegate>
 {
     NSArray *arr_days,*arr_status,*arr_names;
     NewTableViewCell *tempcell;
     NSMutableDictionary *dict;
+    NSMutableArray *indexarr;
+    NSMutableArray *arr;
+    
+    UIPickerView *myPickerView;
+    UIToolbar *toolBar;
+    UIBarButtonItem *barButtonDone;
+    NSArray *selectArray;
+    int selectIndex;
+    NSMutableDictionary *myDict1;
+    NSMutableDictionary *amounts;
+    UILabel *lblname;
+    UIButton *button;
+    UIButton *button1;
+    UITextField *txtfield;
+    NSString *labelString,*textFieldString;
 }
 
 @end
@@ -29,9 +44,33 @@
     arr_status=[[NSArray alloc]initWithObjects:@"resigned",@"inactive", nil];
     tblObj.delegate=self;
     tblObj.dataSource=self;
+    [tblObj reloadData];
     dict=[[NSMutableDictionary alloc]init];
+    amounts=[[NSMutableDictionary alloc]init];
+    selectArray=[[NSArray alloc]init];
+    
+    arrimg =[[NSMutableArray alloc]init];
+   
+//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
+//                                                                          action:@selector(dismissKeyboard)];
+//
+//    [self.view addGestureRecognizer:tap];
+    
 }
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+//    tableViewList.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
+//
+//    tableViewList.hidden = UIScrollViewKeyboardDismissModeInteractive;
+    
+}
+-(void)dismissKeyboard {
+//    [aTextField resignFirstResponder];
+    
+//    tableViewList.hidden=YES;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -46,24 +85,29 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    tableViewList.hidden=YES;
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
 {
-    if (tableView==tblObj) {
+  if (tableView==tblObj) {
          return arr_names.count;
-    }else
+   }else
         if (selectBtn==0) {
             selectBtn=0;
             return arr_days.count;
         }else
             selectBtn=1;
             return arr_status.count;
-    
+
    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 {
+   
+    
     if (tableView==tblObj) {
         tempcell=(NewTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"uploadCell"];
         if(tempcell==nil){
@@ -75,19 +119,58 @@
         tempcell.days_btn.tag=indexPath.row;
         tempcell.status_btn.tag=indexPath.row;
         tempcell.name_Lbl.tag=indexPath.row;
+        tempcell.days_btn.hidden=YES;
+        tempcell.status_btn.hidden=YES;
+    
         
-        tempcell.name_Lbl.text=[arr_names objectAtIndex:indexPath.row];
+//         [tempcell.btn_days addTarget:self action:@selector(selectedDays:) forControlEvents:UIControlEventTouchUpInside];
+//        [tempcell.btn_status addTarget:self action:@selector(selectedstatus:) forControlEvents:UIControlEventTouchUpInside];
         
-         [tempcell.btn_days addTarget:self action:@selector(selectedDays:) forControlEvents:UIControlEventTouchUpInside];
-        [tempcell.btn_status addTarget:self action:@selector(selectedstatus:) forControlEvents:UIControlEventTouchUpInside];
+    
+    lblname  = (UILabel *)    [tempcell name_Lbl];
+    lblname.tag =100;
+    
+    button = (UIButton *)[tempcell btn_days];
+    button.tag =indexPath.row;
+    tempcell.days_btn.enabled = YES;
+    [button addTarget:self  action:@selector(selectedDays:)  forControlEvents:UIControlEventTouchUpInside];
+
+     lblname.text=[arr_names objectAtIndex:indexPath.row];
+    
+    if ([amounts valueForKey:lblname.text] != nil) {
+        button.titleLabel.text = [amounts valueForKey:lblname.text];
+        NSLog(@"%@",amounts);
+       
+    } else {
+        button.titleLabel.text=@"";
+       
         
-        if ([dict valueForKey: tempcell.name_Lbl.text] != nil) {
-            tempcell.btn_days.titleLabel.text = [dict valueForKey: tempcell.name_Lbl.text];
+    }
+    
+        UILabel* lblname1  = (UILabel *)    [tempcell name_Lbl];
+        lblname1.tag =100;
+        
+        button1 = (UIButton *)[tempcell btn_status];
+        button1.tag =indexPath.row;
+        
+        tempcell.status_btn.enabled = YES;
+        
+        [button1 addTarget:self action:@selector(selectedstatus:) forControlEvents:UIControlEventTouchUpInside];
+        lblname1.text=[arr_names objectAtIndex:indexPath.row];
+        
+        if ([dict valueForKey:lblname.text] != nil) {
+            [button1 setTitle:[dict valueForKey:lblname.text] forState:UIControlStateNormal];
+            NSLog(@"%@",dict);
+            
             
         } else {
             
-            tempcell.btn_days.titleLabel.text=@"";
+            [button1 setTitle:@"Active" forState:UIControlStateNormal];
+            
+            
+            
         }
+   
         
         
         return tempcell;
@@ -103,10 +186,24 @@
         return cell;
     }else
         return nil;
+    
+
    
 }
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    
+    
+  
+    
+    for (int i=0; i<[arr_names count]; i++) {
+        
+        
+    }
+    
+    
     if (tableView==tblObj) {
         
     }else if (tableView==tableViewList)
@@ -114,30 +211,48 @@
         if (selectBtn==0) {
             selectBtn=0;
             
-            NSString *str=[arr_days objectAtIndex:indexPath.row];
+            [tempcell.btn_days setTitle:[arr_days objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+            NSString *buttonTitle=tempcell.btn_days.currentTitle;
             tempcell.days_btn.text=[arr_days objectAtIndex:indexPath.row];
+            [dict setObject:buttonTitle forKey:[arr_names objectAtIndex:selectrow]];
             
-            [dict setObject:str forKey:tempcell.name_Lbl.text];
+          
+            tableViewList.hidden=NO;
+            [tableViewList reloadData];
+             tableViewList.hidden=YES;
             
         }else
         {
              selectBtn=1;
-             tempcell.status_btn.text=[arr_status objectAtIndex:indexPath.row];
+            [tempcell.btn_status setTitle:[arr_status objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+            NSString *buttonTitle=tempcell.btn_status.currentTitle;
+            tempcell.days_btn.text=[arr_days objectAtIndex:indexPath.row];
+            [dict setObject:buttonTitle forKey:[arr_names objectAtIndex:selectrow]];
+        
+            tableViewList.hidden=NO;
+            [tableViewList reloadData];
+             tableViewList.hidden=YES;
+            
         }
         
-        tableViewList.hidden=YES;
+        NSLog(@"%@",dict);
+        
     }
 }
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (tableView==tblObj) {
+   
     return 120;
-    }else
-        return 40;
+    
 }
--(IBAction)selectedDays:(id)sender
+
+
+-(IBAction)selectedDays:(UIButton *)sender
 {
     selectBtn=0;
+    
+ 
     tableViewList=[[UITableView alloc]init];
     tableViewList.frame = CGRectMake(80,200,80,150);
     tableViewList.dataSource=self;
@@ -153,9 +268,25 @@
     tableViewList.hidden=NO;
     [tableViewList reloadData];
     
+    
+    selectrow=(int)[sender tag];
+    NSLog(@"tag %d",selectrow);
+
+   
+    
+    NSLog(@"tag number is = %ld",(long)[sender tag]);
+    selectArray=[arr_days objectAtIndex:[sender tag]];
+   
+    NSLog(@"%@",selectArray);
+    tempcell.btn_days = (UIButton *)sender;
+   
+    
 }
+
 -(IBAction)selectedstatus:(id)sender{
     selectBtn=1;
+    selectrow=(int)[sender tag];
+    
     tableViewList=[[UITableView alloc]init];
     tableViewList.frame = CGRectMake(150,200,150,150);
     tableViewList.dataSource=self;
@@ -164,7 +295,7 @@
     [tableViewList registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     tableViewList.layer.borderColor = [UIColor lightGrayColor].CGColor;
     tableViewList.layer.borderWidth = 0.8;
-    
+
     [self.view addSubview:tableViewList];
     
     
@@ -178,5 +309,253 @@
     // Here You can do additional code or task instead of writing with keyboard
     return NO;
 }
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
+    CGFloat currentContentOffset = scrollView.contentOffset.y;
+    
+    if (currentContentOffset > self.previousContentOffset) {
+        // scrolling towards the bottom
+        [tableViewList setHidden:YES];
+    } else if (currentContentOffset < self.previousContentOffset) {
+        // scrolling towards the top
+        [tableViewList setHidden:YES];
+    }
+    self.previousContentOffset = currentContentOffset;
+}
 
+
+
+#pragma mark- Open Document Picker(Delegate) for PDF, DOC Slection from iCloud
+
+
+- (void)showDocumentPickerInMode:(UIDocumentPickerMode)mode
+{
+    
+    UIDocumentMenuViewController *picker =  [[UIDocumentMenuViewController alloc] initWithDocumentTypes:@[@"com.adobe.pdf"] inMode:UIDocumentPickerModeImport];
+    
+    picker.delegate = self;
+    
+    [self presentViewController:picker animated:YES completion:nil];
+}
+
+
+-(void)documentMenu:(UIDocumentMenuViewController *)documentMenu didPickDocumentPicker:(UIDocumentPickerViewController *)documentPicker
+{
+    documentPicker.delegate = self;
+    [self presentViewController:documentPicker animated:YES completion:nil];
+}
+
+- (void)documentPicker:(UIDocumentPickerViewController *)controller
+  didPickDocumentAtURL:(NSURL *)url
+{
+    PDFUrl= url;
+    UploadType=@"PDF";
+    [arrimg removeAllObjects];
+    [arrimg addObject:url];
+    
+    
+}
+#pragma mark- Choose File or Image
+- (IBAction)browseFile:(id)sender
+{
+    UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:@"Select Photo option:" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:
+                            @"Take Photo ",
+                            @"Choose Existing",@"Document",nil];
+    
+    popup.tag = 1;
+    [popup showInView:[UIApplication sharedApplication].keyWindow];
+}
+-(void)choosePhoto{
+    
+    imagePicker = [[UIImagePickerController alloc] init];
+    
+    imagePicker.delegate = self;
+    
+    [[UINavigationBar appearance] setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+    
+    [self presentViewController:imagePicker animated:YES completion:nil];
+}
+-(void)chooseDocument{
+     [self showDocumentPickerInMode:UIDocumentPickerModeOpen];
+}
+- (IBAction)submit:(id)sender
+{
+    NSLog(@"%@",dict);
+    
+    UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        
+        // Cancel button tappped do nothing.
+        
+    }]];
+    
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"Take photo" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+        // take photo button tapped.
+        //        [self takePhoto];
+        
+    }]];
+    
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"Choose photo" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+        // choose photo button tapped.
+                [self choosePhoto];
+        
+        
+        
+       
+        
+    }]];
+    
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"Choose Document" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+        
+        // Distructive button tapped.
+                [self chooseDocument];
+        
+       
+        
+    }]];
+    
+    [self presentViewController:actionSheet animated:YES completion:nil];
+}
+#pragma mark - Upload Image
+
+-(void)uploadimage
+{
+    //loader start
+    APIManager *obj =[[APIManager alloc]init];
+    [obj setDelegate:(id)self];
+    NSMutableDictionary *dict =[[NSMutableDictionary alloc]init];
+    [dict setValue:@"SOME PARAMETER" forKey:@"type"];
+    [dict setValue:@"SOME PARAMETER" forKey:@"title"];
+    
+    NSString *urlString = [NSString stringWithFormat:@"%@",@"API URL"];
+    NSURL *url =[NSURL URLWithString:urlString];
+    [obj startRequestForImageUploadingWithURL:url withRequestType:(kAPIManagerRequestTypePOST) withDataDictionary:dict arrImage:arrimg CalledforMethod:imageupload index:0 isMultiple:NO str_imagetype:@"image"];
+}
+#pragma mark - Upload PDF
+
+-(void)uploadpdf
+{
+    
+    
+    APIManager *obj =[[APIManager alloc]init];
+    [obj setDelegate:(id)self];
+    NSMutableDictionary *dict =[[NSMutableDictionary alloc]init];
+    [dict setValue:@"SOME PARAMETER" forKey:@"type"];
+    [dict setValue:@"SOME PARAMETER" forKey:@"title"];
+    NSString *urlString = [NSString stringWithFormat:@"%@",@"http://52.74.228.143:808/EmployeeServices/EmployeeClaimsService.svc/ClaimPhotoUpload?EmployeeId=IKYA004&ClaimId=189178&ClaimdtlId=441889&Remarks="];
+    NSURL *url =[NSURL URLWithString:urlString];
+    [obj startRequestForImageUploadingWithURL:url withRequestType:(kAPIManagerRequestTypePOST) withDataDictionary:dict arrImage:arrimg CalledforMethod:imageupload index:0 isMultiple:NO str_imagetype:@"pdf"];
+    
+}
+
+#pragma mark-API Manager Delegate Method for Succes or Failure
+
+
+-(void)APIManagerDidFinishRequestWithData:(id)responseData withRequestType:(APIManagerRequestType)requestType CalledforMethod:(APIManagerCalledForMethodName)APImethodName tag:(NSInteger)tag
+{
+    if (APImethodName ==imageupload) {
+        NSDictionary *responsedata=(NSDictionary*)responseData;
+        NSLog(@"data==%@",responsedata);
+        
+        NSString * Success= [responsedata valueForKey:@"success"];
+        NSString * Message= [responseData valueForKey:@"message"];
+        
+        BOOL SuccessBool= [Success boolValue];
+        
+        if (SuccessBool)
+        {
+            
+            //[self.navigationController popViewControllerAnimated:YES];
+            
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+        
+        else
+        {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Server Error" message:Message preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                                  handler:^(UIAlertAction * action) {
+                                                                      [alert dismissViewControllerAnimated:YES completion:nil];
+                                                                  }];
+            [alert addAction:defaultAction];
+            [self presentViewController:alert animated:YES completion:nil];
+        }
+    }
+}
+
+-(void)APIManagerDidFinishRequestWithError:(NSError *)error withRequestType:(APIManagerRequestType)requestType CalledforMethod:(APIManagerCalledForMethodName)APImethodName tag:(NSInteger)tag
+{
+    if (APImethodName ==imageupload) {
+        NSLog(@"image didfailedupload");
+    }
+}
+
+
+
+/*
+
+#pragma  mark- Opne Action Sheet for Options
+
+- (void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    switch (popup.tag) {
+        case 1: {
+            switch (buttonIndex) {
+                case 0:
+                    
+                    imagePicker = [[UIImagePickerController alloc] init];
+                    
+                    // Set source to the camera
+                    imagePicker.sourceType =  UIImagePickerControllerSourceTypeCamera;
+                    
+                    // Delegate is self
+                    imagePicker.delegate = self;
+                    
+                    // Allow editing of image ?
+                    
+                    
+                    // Show image picker
+                    
+                    
+                    [[UINavigationBar appearance] setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+                    [self presentViewController:imagePicker animated:YES completion:nil];
+                    
+                    
+                    break;
+                case 1:
+                    
+                    imagePicker = [[UIImagePickerController alloc] init];
+                    
+                    imagePicker.delegate = self;
+                    
+                    [[UINavigationBar appearance] setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+                    
+                    [self presentViewController:imagePicker animated:YES completion:nil];
+                    
+                    break;
+                    
+                case 2:
+                    
+                    [self showDocumentPickerInMode:UIDocumentPickerModeOpen];
+                    
+                    
+                    
+                    break;
+            }
+            break;
+        }
+        default:
+            break;
+    }
+}
+
+*/
+
+- (IBAction)choose:(id)sender {
+    
+    [self uploadimage];
+}
 @end
