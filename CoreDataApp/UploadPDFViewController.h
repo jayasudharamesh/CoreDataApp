@@ -29,5 +29,6 @@
 @property (nonatomic) CGFloat previousContentOffset;
 
 - (IBAction)choose:(id)sender;
+- (IBAction)showPDF:(id)sender;
 
 @end

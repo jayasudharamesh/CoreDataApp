@@ -13,6 +13,9 @@
 #import "CaptionForPhotoViewController.h"
 #import "UploadPDFViewController.h"
 #import "ScrollViewController.h"
+#import "DynamicViewController.h"
+#import "ActivityListViewController.h"
+
 
 API_AVAILABLE(ios(10.0))
 @interface ViewController ()
@@ -59,7 +62,7 @@ API_AVAILABLE(ios(10.0))
     fetchResults_btn.hidden=YES;
     deleteData_btn.hidden=YES;
     updateData_btn.hidden=YES;
-    emplistData_btn.hidden=YES;
+//    emplistData_btn.hidden=YES;
     pdfData_btn.hidden=YES;
    
 
@@ -263,6 +266,13 @@ API_AVAILABLE(ios(10.0))
     
     ScrollViewController *pdfVC=[self.storyboard instantiateViewControllerWithIdentifier:@"scrollViewVC"];
     [self.navigationController pushViewController:pdfVC animated:YES];
+}
+
+- (IBAction)dynamic_View:(id)sender
+{
+    
+    ActivityListViewController *dynamicVC=[self.storyboard instantiateViewControllerWithIdentifier:@"activityListVC"];
+    [self.navigationController pushViewController:dynamicVC animated:YES];
 }
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {

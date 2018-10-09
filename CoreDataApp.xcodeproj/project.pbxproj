@@ -7,6 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E110D70216C702100E9F359 /* DynamicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E110D6F216C702100E9F359 /* DynamicViewController.m */; };
+		5E110D74216C703D00E9F359 /* TextboxCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E110D72216C703D00E9F359 /* TextboxCell.m */; };
+		5E110D75216C703D00E9F359 /* TextboxCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E110D73216C703D00E9F359 /* TextboxCell.xib */; };
+		5E110D79216C705700E9F359 /* DropdownCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E110D77216C705700E9F359 /* DropdownCell.m */; };
+		5E110D7A216C705700E9F359 /* DropdownCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E110D78216C705700E9F359 /* DropdownCell.xib */; };
+		5E110D7E216C706C00E9F359 /* GPSCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E110D7C216C706C00E9F359 /* GPSCell.m */; };
+		5E110D7F216C706C00E9F359 /* GPSCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E110D7D216C706C00E9F359 /* GPSCell.xib */; };
+		5E110D83216C708000E9F359 /* PhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E110D81216C708000E9F359 /* PhotoCell.m */; };
+		5E110D84216C708000E9F359 /* PhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E110D82216C708000E9F359 /* PhotoCell.xib */; };
+		5E110D88216C709700E9F359 /* RadioCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E110D86216C709700E9F359 /* RadioCell.m */; };
+		5E110D89216C709700E9F359 /* RadioCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E110D87216C709700E9F359 /* RadioCell.xib */; };
+		5E110D8D216C70AC00E9F359 /* CheckboxCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E110D8B216C70AC00E9F359 /* CheckboxCell.m */; };
+		5E110D8E216C70AC00E9F359 /* CheckboxCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E110D8C216C70AC00E9F359 /* CheckboxCell.xib */; };
+		5E110D92216C70C000E9F359 /* RatingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E110D90216C70C000E9F359 /* RatingCell.m */; };
+		5E110D93216C70C000E9F359 /* RatingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E110D91216C70C000E9F359 /* RatingCell.xib */; };
+		5E110D97216C70D300E9F359 /* DateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E110D95216C70D300E9F359 /* DateCell.m */; };
+		5E110D98216C70D300E9F359 /* DateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E110D96216C70D300E9F359 /* DateCell.xib */; };
+		5E110D9C216C747D00E9F359 /* HCSStarRatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E110D9B216C747D00E9F359 /* HCSStarRatingView.m */; };
+		5E110D9D216C8B2200E9F359 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E56B74F210F186900096062 /* CoreLocation.framework */; };
+		5E110DA0216CAD9300E9F359 /* ActivityListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E110D9F216CAD9300E9F359 /* ActivityListViewController.m */; };
 		5E3C64A2213D4B4100BCD3E7 /* UploadPDFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3C64A1213D4B4100BCD3E7 /* UploadPDFViewController.m */; };
 		5E3C64A6213D4B8000BCD3E7 /* NewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3C64A4213D4B8000BCD3E7 /* NewTableViewCell.m */; };
 		5E3C64A7213D4B8000BCD3E7 /* NewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E3C64A5213D4B8000BCD3E7 /* NewTableViewCell.xib */; };
@@ -30,6 +50,7 @@
 		5E3C64E7214106EF00BCD3E7 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3C64DD214106EF00BCD3E7 /* AFURLRequestSerialization.m */; };
 		5E3C64E8214106EF00BCD3E7 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3C64DE214106EF00BCD3E7 /* AFURLResponseSerialization.m */; };
 		5E3C64E9214106EF00BCD3E7 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3C64E0214106EF00BCD3E7 /* AFURLSessionManager.m */; };
+		5E53B902214643D700FC4F92 /* showPDFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E53B901214643D700FC4F92 /* showPDFViewController.m */; };
 		5E56B715210F17EE00096062 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E56B714210F17EE00096062 /* AppDelegate.m */; };
 		5E56B718210F17EE00096062 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E56B717210F17EE00096062 /* ViewController.m */; };
 		5E56B71B210F17EE00096062 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E56B719210F17EE00096062 /* Main.storyboard */; };
@@ -82,6 +103,36 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5E110D6E216C702100E9F359 /* DynamicViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DynamicViewController.h; sourceTree = "<group>"; };
+		5E110D6F216C702100E9F359 /* DynamicViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DynamicViewController.m; sourceTree = "<group>"; };
+		5E110D71216C703D00E9F359 /* TextboxCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextboxCell.h; sourceTree = "<group>"; };
+		5E110D72216C703D00E9F359 /* TextboxCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextboxCell.m; sourceTree = "<group>"; };
+		5E110D73216C703D00E9F359 /* TextboxCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextboxCell.xib; sourceTree = "<group>"; };
+		5E110D76216C705700E9F359 /* DropdownCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DropdownCell.h; sourceTree = "<group>"; };
+		5E110D77216C705700E9F359 /* DropdownCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DropdownCell.m; sourceTree = "<group>"; };
+		5E110D78216C705700E9F359 /* DropdownCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DropdownCell.xib; sourceTree = "<group>"; };
+		5E110D7B216C706C00E9F359 /* GPSCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPSCell.h; sourceTree = "<group>"; };
+		5E110D7C216C706C00E9F359 /* GPSCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPSCell.m; sourceTree = "<group>"; };
+		5E110D7D216C706C00E9F359 /* GPSCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GPSCell.xib; sourceTree = "<group>"; };
+		5E110D80216C708000E9F359 /* PhotoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoCell.h; sourceTree = "<group>"; };
+		5E110D81216C708000E9F359 /* PhotoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoCell.m; sourceTree = "<group>"; };
+		5E110D82216C708000E9F359 /* PhotoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCell.xib; sourceTree = "<group>"; };
+		5E110D85216C709700E9F359 /* RadioCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RadioCell.h; sourceTree = "<group>"; };
+		5E110D86216C709700E9F359 /* RadioCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RadioCell.m; sourceTree = "<group>"; };
+		5E110D87216C709700E9F359 /* RadioCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RadioCell.xib; sourceTree = "<group>"; };
+		5E110D8A216C70AC00E9F359 /* CheckboxCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheckboxCell.h; sourceTree = "<group>"; };
+		5E110D8B216C70AC00E9F359 /* CheckboxCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckboxCell.m; sourceTree = "<group>"; };
+		5E110D8C216C70AC00E9F359 /* CheckboxCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckboxCell.xib; sourceTree = "<group>"; };
+		5E110D8F216C70C000E9F359 /* RatingCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RatingCell.h; sourceTree = "<group>"; };
+		5E110D90216C70C000E9F359 /* RatingCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RatingCell.m; sourceTree = "<group>"; };
+		5E110D91216C70C000E9F359 /* RatingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RatingCell.xib; sourceTree = "<group>"; };
+		5E110D94216C70D300E9F359 /* DateCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DateCell.h; sourceTree = "<group>"; };
+		5E110D95216C70D300E9F359 /* DateCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DateCell.m; sourceTree = "<group>"; };
+		5E110D96216C70D300E9F359 /* DateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateCell.xib; sourceTree = "<group>"; };
+		5E110D9A216C747C00E9F359 /* HCSStarRatingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCSStarRatingView.h; sourceTree = "<group>"; };
+		5E110D9B216C747D00E9F359 /* HCSStarRatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCSStarRatingView.m; sourceTree = "<group>"; };
+		5E110D9E216CAD9300E9F359 /* ActivityListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActivityListViewController.h; sourceTree = "<group>"; };
+		5E110D9F216CAD9300E9F359 /* ActivityListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ActivityListViewController.m; sourceTree = "<group>"; };
 		5E3C64A0213D4B4100BCD3E7 /* UploadPDFViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UploadPDFViewController.h; sourceTree = "<group>"; };
 		5E3C64A1213D4B4100BCD3E7 /* UploadPDFViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UploadPDFViewController.m; sourceTree = "<group>"; };
 		5E3C64A3213D4B8000BCD3E7 /* NewTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewTableViewCell.h; sourceTree = "<group>"; };
@@ -128,6 +179,8 @@
 		5E3C64DE214106EF00BCD3E7 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		5E3C64DF214106EF00BCD3E7 /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
 		5E3C64E0214106EF00BCD3E7 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		5E53B900214643D700FC4F92 /* showPDFViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = showPDFViewController.h; sourceTree = "<group>"; };
+		5E53B901214643D700FC4F92 /* showPDFViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = showPDFViewController.m; sourceTree = "<group>"; };
 		5E56B710210F17EE00096062 /* CoreDataApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E56B713210F17EE00096062 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5E56B714210F17EE00096062 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -203,6 +256,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E110D9D216C8B2200E9F359 /* CoreLocation.framework in Frameworks */,
 				5EA61125212A81EF00762C4F /* AssetsLibrary.framework in Frameworks */,
 				5E56B77021104DE900096062 /* QuickLook.framework in Frameworks */,
 				5E56B74C210F185000096062 /* UIKit.framework in Frameworks */,
@@ -227,6 +281,67 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E110D6B216C6FC600E9F359 /* DynamicView */ = {
+			isa = PBXGroup;
+			children = (
+				5E110D99216C745900E9F359 /* Rating classes */,
+				5E110D6D216C6FF200E9F359 /* VC'S */,
+				5E110D6C216C6FD000E9F359 /* custom Cells */,
+			);
+			path = DynamicView;
+			sourceTree = "<group>";
+		};
+		5E110D6C216C6FD000E9F359 /* custom Cells */ = {
+			isa = PBXGroup;
+			children = (
+				5E110D71216C703D00E9F359 /* TextboxCell.h */,
+				5E110D72216C703D00E9F359 /* TextboxCell.m */,
+				5E110D73216C703D00E9F359 /* TextboxCell.xib */,
+				5E110D76216C705700E9F359 /* DropdownCell.h */,
+				5E110D77216C705700E9F359 /* DropdownCell.m */,
+				5E110D78216C705700E9F359 /* DropdownCell.xib */,
+				5E110D7B216C706C00E9F359 /* GPSCell.h */,
+				5E110D7C216C706C00E9F359 /* GPSCell.m */,
+				5E110D7D216C706C00E9F359 /* GPSCell.xib */,
+				5E110D80216C708000E9F359 /* PhotoCell.h */,
+				5E110D81216C708000E9F359 /* PhotoCell.m */,
+				5E110D82216C708000E9F359 /* PhotoCell.xib */,
+				5E110D85216C709700E9F359 /* RadioCell.h */,
+				5E110D86216C709700E9F359 /* RadioCell.m */,
+				5E110D87216C709700E9F359 /* RadioCell.xib */,
+				5E110D8A216C70AC00E9F359 /* CheckboxCell.h */,
+				5E110D8B216C70AC00E9F359 /* CheckboxCell.m */,
+				5E110D8C216C70AC00E9F359 /* CheckboxCell.xib */,
+				5E110D8F216C70C000E9F359 /* RatingCell.h */,
+				5E110D90216C70C000E9F359 /* RatingCell.m */,
+				5E110D91216C70C000E9F359 /* RatingCell.xib */,
+				5E110D94216C70D300E9F359 /* DateCell.h */,
+				5E110D95216C70D300E9F359 /* DateCell.m */,
+				5E110D96216C70D300E9F359 /* DateCell.xib */,
+			);
+			name = "custom Cells";
+			sourceTree = "<group>";
+		};
+		5E110D6D216C6FF200E9F359 /* VC'S */ = {
+			isa = PBXGroup;
+			children = (
+				5E110D6E216C702100E9F359 /* DynamicViewController.h */,
+				5E110D6F216C702100E9F359 /* DynamicViewController.m */,
+				5E110D9E216CAD9300E9F359 /* ActivityListViewController.h */,
+				5E110D9F216CAD9300E9F359 /* ActivityListViewController.m */,
+			);
+			name = "VC'S";
+			sourceTree = "<group>";
+		};
+		5E110D99216C745900E9F359 /* Rating classes */ = {
+			isa = PBXGroup;
+			children = (
+				5E110D9A216C747C00E9F359 /* HCSStarRatingView.h */,
+				5E110D9B216C747D00E9F359 /* HCSStarRatingView.m */,
+			);
+			name = "Rating classes";
+			sourceTree = "<group>";
+		};
 		5E3C64AC2141064900BCD3E7 /* api */ = {
 			isa = PBXGroup;
 			children = (
@@ -299,6 +414,7 @@
 		5E56B707210F17EE00096062 = {
 			isa = PBXGroup;
 			children = (
+				5E110D6B216C6FC600E9F359 /* DynamicView */,
 				5E3C64B22141069400BCD3E7 /* New Group */,
 				5E56B712210F17EE00096062 /* CoreDataApp */,
 				5E56B72E210F17F200096062 /* CoreDataAppTests */,
@@ -338,6 +454,8 @@
 				5E3C64A5213D4B8000BCD3E7 /* NewTableViewCell.xib */,
 				5E3C64A8213D5B2000BCD3E7 /* ScrollViewController.h */,
 				5E3C64A9213D5B2000BCD3E7 /* ScrollViewController.m */,
+				5E53B900214643D700FC4F92 /* showPDFViewController.h */,
+				5E53B901214643D700FC4F92 /* showPDFViewController.m */,
 				5E56B719210F17EE00096062 /* Main.storyboard */,
 				5E56B71F210F17F200096062 /* Assets.xcassets */,
 				5E56B721210F17F200096062 /* LaunchScreen.storyboard */,
@@ -595,11 +713,19 @@
 			files = (
 				5E56B723210F17F200096062 /* LaunchScreen.storyboard in Resources */,
 				5E56B720210F17F200096062 /* Assets.xcassets in Resources */,
+				5E110D93216C70C000E9F359 /* RatingCell.xib in Resources */,
+				5E110D7F216C706C00E9F359 /* GPSCell.xib in Resources */,
+				5E110D84216C708000E9F359 /* PhotoCell.xib in Resources */,
 				5E3C64B12141066C00BCD3E7 /* ios_tutorial.pdf in Resources */,
+				5E110D89216C709700E9F359 /* RadioCell.xib in Resources */,
 				5E3C64A7213D4B8000BCD3E7 /* NewTableViewCell.xib in Resources */,
 				5EA61135212A82B900762C4F /* Resource in Resources */,
+				5E110D98216C70D300E9F359 /* DateCell.xib in Resources */,
 				5E56B71B210F17EE00096062 /* Main.storyboard in Resources */,
+				5E110D75216C703D00E9F359 /* TextboxCell.xib in Resources */,
+				5E110D8E216C70AC00E9F359 /* CheckboxCell.xib in Resources */,
 				5EA61132212A82B900762C4F /* BRPhotoPicker.storyboard in Resources */,
+				5E110D7A216C705700E9F359 /* DropdownCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -624,6 +750,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E110D83216C708000E9F359 /* PhotoCell.m in Sources */,
+				5E110D9C216C747D00E9F359 /* HCSStarRatingView.m in Sources */,
 				5E3C64CB214106DC00BCD3E7 /* UIImageView+AFNetworking.m in Sources */,
 				5EA61163212A844A00762C4F /* UIImage+PECrop.m in Sources */,
 				5EA61150212A841B00762C4F /* BRPreviewCell.m in Sources */,
@@ -631,12 +759,15 @@
 				5E3C64E3214106EF00BCD3E7 /* AFHTTPSessionManager.m in Sources */,
 				5E3C64CA214106DC00BCD3E7 /* UIRefreshControl+AFNetworking.m in Sources */,
 				5E3C64A2213D4B4100BCD3E7 /* UploadPDFViewController.m in Sources */,
+				5E110DA0216CAD9300E9F359 /* ActivityListViewController.m in Sources */,
 				5EA6114D212A841500762C4F /* BR_ImageInfo+Image.m in Sources */,
 				5E3C64E7214106EF00BCD3E7 /* AFURLRequestSerialization.m in Sources */,
 				5EA6113E212A83D400762C4F /* BRPhotoPickerController.m in Sources */,
 				5E3C64E4214106EF00BCD3E7 /* AFSecurityPolicy.m in Sources */,
 				5EA61128212A821700762C4F /* CaptionForPhotoViewController.m in Sources */,
 				5EA61162212A844A00762C4F /* PEResizeControl.m in Sources */,
+				5E110D8D216C70AC00E9F359 /* CheckboxCell.m in Sources */,
+				5E53B902214643D700FC4F92 /* showPDFViewController.m in Sources */,
 				5E56B718210F17EE00096062 /* ViewController.m in Sources */,
 				5EA61160212A844A00762C4F /* PECropViewController.m in Sources */,
 				5E3C64E6214106EF00BCD3E7 /* AFURLConnectionOperation.m in Sources */,
@@ -644,23 +775,30 @@
 				5E56B71E210F17EE00096062 /* CoreDataApp.xcdatamodeld in Sources */,
 				5E3C64C9214106DC00BCD3E7 /* UIButton+AFNetworking.m in Sources */,
 				5EA61144212A840000762C4F /* BR_AssetsInfo.m in Sources */,
+				5E110D97216C70D300E9F359 /* DateCell.m in Sources */,
 				5E3C64CD214106DC00BCD3E7 /* UIAlertView+AFNetworking.m in Sources */,
 				5E3C64C6214106DC00BCD3E7 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				5EA6114C212A841500762C4F /* UIImage+ResizeMagick.m in Sources */,
 				5E56B726210F17F200096062 /* main.m in Sources */,
 				5E3C64B02141066C00BCD3E7 /* APIManager.m in Sources */,
+				5E110D79216C705700E9F359 /* DropdownCell.m in Sources */,
+				5E110D88216C709700E9F359 /* RadioCell.m in Sources */,
 				5E56B76B21102D1800096062 /* EmployeeListViewController.m in Sources */,
 				5E3C64CC214106DC00BCD3E7 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				5E3C64E5214106EF00BCD3E7 /* AFNetworkReachabilityManager.m in Sources */,
 				5E3C64AA213D5B2000BCD3E7 /* ScrollViewController.m in Sources */,
 				5EA61141212A83F000762C4F /* BRPhotosCell.m in Sources */,
+				5E110D74216C703D00E9F359 /* TextboxCell.m in Sources */,
+				5E110D92216C70C000E9F359 /* RatingCell.m in Sources */,
 				5E56B715210F17EE00096062 /* AppDelegate.m in Sources */,
+				5E110D7E216C706C00E9F359 /* GPSCell.m in Sources */,
 				5E56B76E21104D3800096062 /* PdfViewController.m in Sources */,
 				5EA61147212A840F00762C4F /* BRPreviewViewController.m in Sources */,
 				5E3C64E2214106EF00BCD3E7 /* AFHTTPRequestOperation.m in Sources */,
 				5E3C64C7214106DC00BCD3E7 /* UIProgressView+AFNetworking.m in Sources */,
 				5EA6113B212A82F500762C4F /* BR_ImageInfo.m in Sources */,
 				5E3C64C8214106DC00BCD3E7 /* UIWebView+AFNetworking.m in Sources */,
+				5E110D70216C702100E9F359 /* DynamicViewController.m in Sources */,
 				5EA61136212A82B900762C4F /* BRImagePicker.m in Sources */,
 				5EA61161212A844A00762C4F /* PECropRectView.m in Sources */,
 				5E3C64E8214106EF00BCD3E7 /* AFURLResponseSerialization.m in Sources */,

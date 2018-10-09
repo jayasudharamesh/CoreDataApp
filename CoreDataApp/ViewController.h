@@ -30,6 +30,7 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *firstName_txt;
 @property (weak, nonatomic) IBOutlet UITextField *lastName_txt;
+@property (weak, nonatomic) IBOutlet UIButton *dynamicbtn;
 
 
 - (IBAction)saveData:(id)sender;
@@ -40,6 +41,7 @@
 - (IBAction)viewPDF:(id)sender;
 - (IBAction)uploadPDF:(id)sender;
 - (IBAction)scrollView_btn:(id)sender;
+- (IBAction)dynamic_View:(id)sender;
 
 @end
 

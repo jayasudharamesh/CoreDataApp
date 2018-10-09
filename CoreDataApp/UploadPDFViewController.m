@@ -8,6 +8,7 @@
 
 #import "UploadPDFViewController.h"
 #import "NewTableViewCell.h"
+#import "showPDFViewController.h"
 
 @interface UploadPDFViewController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UIAlertViewDelegate,UIDocumentPickerDelegate, UIDocumentMenuDelegate>
 {
@@ -29,6 +30,8 @@
     UIButton *button1;
     UITextField *txtfield;
     NSString *labelString,*textFieldString;
+    
+    showPDFViewController *showpdfVC;
 }
 
 @end
@@ -498,5 +501,10 @@
 - (IBAction)choose:(id)sender {
     
     [self uploadimage];
+}//showPdfVC
+
+- (IBAction)showPDF:(id)sender {
+    showpdfVC=[self.storyboard instantiateViewControllerWithIdentifier:@"showPdfVC"];
+    [self.navigationController pushViewController:showpdfVC animated:YES];
 }
 @end
