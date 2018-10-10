@@ -42,6 +42,7 @@
 - (IBAction)uploadPDF:(id)sender;
 - (IBAction)scrollView_btn:(id)sender;
 - (IBAction)dynamic_View:(id)sender;
+- (IBAction)radioButton:(id)sender;
 
 @end
 

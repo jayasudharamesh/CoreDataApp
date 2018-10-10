@@ -15,7 +15,7 @@
 #import "ScrollViewController.h"
 #import "DynamicViewController.h"
 #import "ActivityListViewController.h"
-
+#import "RadioViewController.h"
 
 API_AVAILABLE(ios(10.0))
 @interface ViewController ()
@@ -272,6 +272,13 @@ API_AVAILABLE(ios(10.0))
 {
     
     ActivityListViewController *dynamicVC=[self.storyboard instantiateViewControllerWithIdentifier:@"activityListVC"];
+    [self.navigationController pushViewController:dynamicVC animated:YES];
+}
+
+- (IBAction)radioButton:(id)sender
+{
+    
+    RadioViewController *dynamicVC=[self.storyboard instantiateViewControllerWithIdentifier:@"radioButtonVC"];
     [self.navigationController pushViewController:dynamicVC animated:YES];
 }
 -(BOOL)textFieldShouldReturn:(UITextField *)textField

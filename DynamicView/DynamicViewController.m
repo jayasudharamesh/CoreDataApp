@@ -16,14 +16,20 @@
 #import "RatingCell.h"
 #import "DateCell.h"
 #import "HCSStarRatingView.h"
+#import "RadioButton.h"
+#import "SegmentTableViewCell.h"
 
 @interface DynamicViewController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,CLLocationManagerDelegate>
 {
     NSMutableArray *question_arr,*answerType_arr,*answerfromweb_arr,*questionID_arr,*selectedDropdownAns_arr,*validation_arr;
+    NSMutableArray *selectedRadio_arr;
     NSMutableDictionary *saveallDataDic;
     int selectDropdownIndex;
     int selectGPSIndex;
     int selectImageindex;
+    int selectradioIndex;
+    
+    
     int imgbtn;
     int imageAssignedIndicator;
     
@@ -36,6 +42,7 @@
     CheckboxCell *checkboxCell;
     RatingCell *ratingCell;
     DateCell *dateCell;
+    SegmentTableViewCell *segmentViewCell;
     
     
     UIButton *button;
@@ -58,6 +65,13 @@
     NSString *ImagefilePath;
     
     NSString *labelString,*textFieldString;
+    
+    RadioButton *rb1;
+    RadioButton *rb2;
+    UILabel *label1;
+    UILabel *label2;
+    
+    NSMutableArray *radioButtons;
 }
 
 @end
@@ -87,13 +101,14 @@
     questionID_arr=[[NSMutableArray alloc]init];
     selectedDropdownAns_arr=[[NSMutableArray alloc]init];
     validation_arr=[[NSMutableArray alloc]init];
+    selectedRadio_arr=[[NSMutableArray alloc]init];
     saveallDataDic=[[NSMutableDictionary alloc]init];
     
     dynamicViewTable.delegate=self;
     dynamicViewTable.dataSource=self;
     
     NSError *error;
-    NSString *url_string = [NSString stringWithFormat: @"http://52.74.228.143:808/ActivityServices/ActivityService.svc/GetActivityDetails?CustomerId=CUSBFL1&ActivityId=2281"];
+    NSString *url_string = [NSString stringWithFormat: @"http://52.74.228.143:808/ActivityServices/ActivityService.svc/GetActivityDetails?CustomerId=TEST&ActivityId=%@",_activityId];
     NSData *data = [NSData dataWithContentsOfURL: [NSURL URLWithString:url_string]];
     NSDictionary *jsonDic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
     NSLog(@"json: %@", jsonDic);
@@ -104,6 +119,8 @@
     answerfromweb_arr=[jsonDic objectForKey:@"lstArrAnswer"];
     answerType_arr=[jsonDic objectForKey:@"AnswerFieldType"];
     validation_arr=[jsonDic objectForKey:@"ValidationType"];
+    
+    radioButtons=[[NSMutableArray alloc]init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -126,6 +143,9 @@
         if([[answerType_arr objectAtIndex:indexPath.row]isEqualToString:@"Date"])
         {
             return 180;
+        }else if([[answerType_arr objectAtIndex:indexPath.row]isEqualToString:@"Radio"])
+        {
+            return 150;
         }else
           return 100;
        
@@ -147,10 +167,9 @@
     
     if (tableView==dynamicViewTable) {
         
-    
+    //PDF
     if([[answerType_arr objectAtIndex:indexPath.row]isEqualToString:@"Textbox"] ||
-       [[answerType_arr objectAtIndex:indexPath.row]isEqualToString:@"Checkbox"]||
-       [[answerType_arr objectAtIndex:indexPath.row]isEqualToString:@"Radio"])
+       [[answerType_arr objectAtIndex:indexPath.row]isEqualToString:@"Checkbox"]|| [[answerType_arr objectAtIndex:indexPath.row]isEqualToString:@"PDF"])
     {
         static NSString *CellIdentifier = @"textboxCell";
         static NSString *CellNib = @"TextboxCell";
@@ -367,7 +386,7 @@
         
         return dateCell;
     }else if([[answerType_arr objectAtIndex:indexPath.row]isEqualToString:@"Rating"]){
-        static NSString *CellIdentifier = @"datePickerCell";
+        static NSString *CellIdentifier = @"ratingviewCell";
         static NSString *CellNib = @"RatingCell";
         ratingCell = (RatingCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         
@@ -390,6 +409,64 @@
         ratingCell.ratingQuestID.text=[questionID_arr objectAtIndex:indexPath.row];
        
         return ratingCell;
+    }else if([[answerType_arr objectAtIndex:indexPath.row]isEqualToString:@"Radio"]){
+        static NSString *CellIdentifier = @"radioViewCell";
+        static NSString *CellNib = @"RadioCell";
+        radioCell = (RadioCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        
+        if (!radioCell)
+        {
+            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:CellNib owner:self options:nil];
+            radioCell = (RadioCell *)[nib objectAtIndex:0];
+            
+        }
+        
+        
+        
+        radioCell.radioBtn1.tag=indexPath.row;
+        radioCell.radioBtn2.tag=indexPath.row;
+        radioCell.radioLbl1.tag=indexPath.row;
+        radioCell.radioLbl2.tag=indexPath.row;
+        radioCell.radioQuest_Lbl.tag=indexPath.row;
+        radioCell.radioQuestID.tag=indexPath.row;
+        radioCell.radioQuestID.hidden=YES;
+        radioCell.radioQuest_Lbl.text=[question_arr objectAtIndex:indexPath.row];
+        radioCell.radioQuestID.text=[questionID_arr objectAtIndex:indexPath.row];
+        radioCell.radioBtn1.hidden=YES;
+        radioCell.radioBtn2.hidden=YES;
+//        radioCell.radioLbl1.hidden=YES;
+//        radioCell.radioLbl2.hidden=YES;
+        
+        [radioButtons addObject:radioCell.radioBtn1];
+        [radioButtons addObject:radioCell.radioBtn2];
+        
+        
+        [radioCell.radioBtn1 addTarget:self action:@selector(checkBoxSelected:) forControlEvents:UIControlEventTouchUpInside];
+        [radioCell.radioBtn2 addTarget:self action:@selector(checkBoxSelected:) forControlEvents:UIControlEventTouchUpInside];
+      
+        rb1 = [[RadioButton alloc] initWithGroupId:@"first group" index:0];
+        rb2 = [[RadioButton alloc] initWithGroupId:@"first group" index:1];
+      
+        
+        rb1.frame = CGRectMake(10,60,22,22);
+        rb2.frame = CGRectMake(10,93,22,22);
+       
+        
+        [radioCell addSubview:rb1];
+        [radioCell addSubview:rb2];
+      
+        
+        [RadioButton addObserverForGroupId:@"first group" observer:self];
+        
+        selectedRadio_arr=[[answerfromweb_arr valueForKey:@"lstOption"]objectAtIndex:[ radioCell.radioQuest_Lbl tag]];
+        NSLog(@"dropdown index %@",selectedRadio_arr);
+        
+        if ([selectedRadio_arr count]!=0) {
+            radioCell.radioLbl1.text=selectedRadio_arr[0];
+            radioCell.radioLbl2.text=selectedRadio_arr[1];
+        }
+        
+        return radioCell;
     }
     }
     else if (tableView==tableViewList1)
@@ -423,7 +500,45 @@
     }
     
 }
-
+-(void)checkBoxSelected:(id)sender{
+    for (UIButton *radioButton in radioButtons) {
+        [radioButton setSelected:NO];
+    }
+    UIButton* myButton = (UIButton*)sender;
+    [myButton setSelected:YES];
+    //or
+    //[sender setSelected:YES];
+}
+- (void)MySegmentControlAction:(UISegmentedControl *)segment
+{
+  
+    
+    if(segment.selectedSegmentIndex == 0)
+    {
+        NSLog(@"%ld",(long)segment.selectedSegmentIndex);
+        [segmentViewCell.segmentControl_seg setTitle:selectedRadio_arr[0] forSegmentAtIndex:0];
+      
+         [saveallDataDic  setObject:selectedRadio_arr[0]  forKey:[questionID_arr objectAtIndex:segment.selectedSegmentIndex]];
+    }else if(segment.selectedSegmentIndex == 1)
+    {
+        NSLog(@"%ld",(long)segment.selectedSegmentIndex);
+        
+    }
+}
+-(void)radioButtonSelectedAtIndex:(NSUInteger)index inGroup:(NSString *)groupId{
+    NSLog(@"changed to %d in %@",index,groupId);
+    int select;
+    select=(int)index;
+    if (index==0) {
+        
+        index=0;
+        [saveallDataDic setObject:radioCell.radioLbl1.text forKey:[questionID_arr objectAtIndex:select]];
+    }else if (index==1)
+    {
+        index=1;
+         [saveallDataDic setObject:radioCell.radioLbl2.text forKey:[questionID_arr objectAtIndex:select]];
+    }
+}
 -(void)textFieldDidChange:(UITextField *)txtField
 {
     
@@ -542,27 +657,7 @@
 -(void)popupHide{
     gpsLocationView.hidden=YES;
 }
-- (void)datePickerValueChanged:(id)sender {
-    
-    int selectDate;
-    selectDate=(int)[sender tag];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"dd-MM-yyyy"];
-    NSString *str_date = [dateFormatter stringFromDate:dateCell.datePickerAnswer.date];
-    [saveallDataDic  setObject:str_date forKey:[questionID_arr objectAtIndex:selectDate]];
-}
-- (IBAction)didChangeValue:(HCSStarRatingView *)sender {
-    
-    int selectRating;
-    selectRating=(int)sender.tag;
-    
-    NSLog(@"Changed rating to %.1f", sender.value);
-    int starvalue = sender.value;
-    
-    NSString *str_rateforSepActivity= [NSString stringWithFormat:@"%d", starvalue];
-    
-    [saveallDataDic  setObject:str_rateforSepActivity forKey:[questionID_arr objectAtIndex:selectRating]];
-}
+
 - (IBAction)selectedPhoto:(UIButton*)sender
 {
     selectImageindex=(int)[sender tag];
@@ -645,6 +740,36 @@
     
 //    fileURL = [NSURL fileURLWithPath:ImagefilePath];
     
+}
+- (void)datePickerValueChanged:(id)sender {
+    
+    int selectDate;
+    selectDate=(int)[sender tag];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"dd-MM-yyyy"];
+    NSString *str_date = [dateFormatter stringFromDate:dateCell.datePickerAnswer.date];
+    [saveallDataDic  setObject:str_date forKey:[questionID_arr objectAtIndex:selectDate]];
+}
+- (IBAction)didChangeValue:(HCSStarRatingView *)sender {
+    
+    int selectRating;
+    selectRating=(int)sender.tag;
+    
+    NSLog(@"Changed rating to %.1f", sender.value);
+    int starvalue = sender.value;
+    
+    NSString *str_rateforSepActivity= [NSString stringWithFormat:@"%d", starvalue];
+    
+    [saveallDataDic  setObject:str_rateforSepActivity forKey:[questionID_arr objectAtIndex:selectRating]];
+}
+
+//selectedRadiobtn1:
+//selectedRadiobtn2:
+
+-(void)set_stars:(int)num :(NSString *)desc{
+    NSString *selectedValue = [NSString stringWithFormat:@"%d", num];
+   
+    [saveallDataDic  setObject:selectedValue forKey:[questionID_arr objectAtIndex:selectradioIndex]];
 }
 - (IBAction)submitButton:(id)sender {
     
