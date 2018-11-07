@@ -1,0 +1,54 @@
+
+/* Class = "UIButton"; normalTitle = "Delete"; ObjectID = "3sh-9H-BYV"; */
+"3sh-9H-BYV.normalTitle" = "Delete";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "9iL-Ij-Jpw"; */
+"9iL-Ij-Jpw.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Choose"; ObjectID = "Akc-My-MQx"; */
+"Akc-My-MQx.normalTitle" = "Choose";
+
+/* Class = "UIButton"; normalTitle = "Results"; ObjectID = "D1x-Mf-5oC"; */
+"D1x-Mf-5oC.normalTitle" = "Results";
+
+/* Class = "UIButton"; normalTitle = "EMAIL"; ObjectID = "Jwr-hD-L0s"; */
+"Jwr-hD-L0s.normalTitle" = "EMAIL";
+
+/* Class = "UIButton"; normalTitle = "UPLOAD PDF"; ObjectID = "Pdy-gG-hY5"; */
+"Pdy-gG-hY5.normalTitle" = "UPLOAD PDF";
+
+/* Class = "UIButton"; normalTitle = "submit"; ObjectID = "R32-jD-PrR"; */
+"R32-jD-PrR.normalTitle" = "submit";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "SVf-Vl-LZ1"; */
+"SVf-Vl-LZ1.text" = "Welcome";
+
+/* Class = "UIButton"; normalTitle = "Employee LIst"; ObjectID = "Z0Y-bS-kHn"; */
+"Z0Y-bS-kHn.normalTitle" = "Employee LIst";
+
+/* Class = "UIButton"; normalTitle = "Dynamic View"; ObjectID = "aaI-N3-SK3"; */
+"aaI-N3-SK3.normalTitle" = "Dynamic View";
+
+/* Class = "UIButton"; normalTitle = "Show PDF"; ObjectID = "cWa-eT-dAs"; */
+"cWa-eT-dAs.normalTitle" = "Show PDF";
+
+/* Class = "UIButton"; normalTitle = "SCROLL VIEW"; ObjectID = "deV-BA-eAU"; */
+"deV-BA-eAU.normalTitle" = "SCROLL VIEW";
+
+/* Class = "UIButton"; normalTitle = "Radio Button"; ObjectID = "kla-hQ-g8a"; */
+"kla-hQ-g8a.normalTitle" = "Radio Button";
+
+/* Class = "UIButton"; normalTitle = "SUBMIT"; ObjectID = "mFG-fV-XPa"; */
+"mFG-fV-XPa.normalTitle" = "SUBMIT";
+
+/* Class = "UIButton"; normalTitle = "Select Photos"; ObjectID = "o3D-w7-mdr"; */
+"o3D-w7-mdr.normalTitle" = "Select Photos";
+
+/* Class = "UIButton"; normalTitle = "PDF"; ObjectID = "ogJ-y7-dhY"; */
+"ogJ-y7-dhY.normalTitle" = "PDF";
+
+/* Class = "UIButton"; normalTitle = "update"; ObjectID = "rW0-v4-EWJ"; */
+"rW0-v4-EWJ.normalTitle" = "update";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "rcF-kr-48b"; */
+"rcF-kr-48b.normalTitle" = "Save";

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="T6O-PF-rpz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="T6O-PF-rpz">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -155,7 +155,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kla-hQ-g8a">
-                                <rect key="frame" x="117" y="232" width="140" height="30"/>
+                                <rect key="frame" x="118" y="232" width="140" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.70589192710000004" blue="0.4084472656" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
@@ -164,6 +164,36 @@
                                 </state>
                                 <connections>
                                     <action selector="radioButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YpL-Pn-HDr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jwr-hD-L0s">
+                                <rect key="frame" x="118" y="186" width="140" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="EMAIL">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendEmail:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gD7-b3-XPV"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l98-7J-lY3">
+                                <rect key="frame" x="87" y="98" width="205" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jHI-5Q-hjq">
+                                <rect key="frame" x="118" y="141" width="140" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.70589192710000004" blue="0.4084472656" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="SIGN IN WITH FB">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="signInWithFB:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5oo-FP-oXF"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -179,8 +209,10 @@
                         <outlet property="fetchResults_btn" destination="D1x-Mf-5oC" id="ebG-BU-2Tu"/>
                         <outlet property="firstName_txt" destination="J6Q-dp-fu3" id="mkJ-RW-rK9"/>
                         <outlet property="lastName_txt" destination="HeH-LZ-drL" id="TCR-yz-2kr"/>
+                        <outlet property="localized_Lbl" destination="l98-7J-lY3" id="fBP-hj-Um5"/>
                         <outlet property="location_txt" destination="REJ-1J-Kzg" id="5q8-jr-Llr"/>
                         <outlet property="name_txt" destination="vLq-V5-fAc" id="lkP-GY-bDY"/>
+                        <outlet property="newSignIn_btn" destination="jHI-5Q-hjq" id="ero-z5-p55"/>
                         <outlet property="number_txt" destination="GZ6-uv-8oH" id="bAS-Pl-L1p"/>
                         <outlet property="pdfData_btn" destination="ogJ-y7-dhY" id="qmv-ET-9hR"/>
                         <outlet property="saveData_btn" destination="rcF-kr-48b" id="vyy-wW-Qdm"/>
@@ -219,7 +251,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M2t-Vz-Wdi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1728.8" y="133.5832083958021"/>
+            <point key="canvasLocation" x="2068" y="151"/>
         </scene>
         <!--UploadPDF View Controller-->
         <scene sceneID="7P5-rN-dOj">
@@ -326,6 +358,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xeN-W0-xRW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="310" y="1509"/>
+        </scene>
+        <!--Google Map View Controller-->
+        <scene sceneID="Zx9-gs-NSp">
+            <objects>
+                <viewController storyboardIdentifier="googleMapVC" id="8x3-IE-cwx" customClass="GoogleMapViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SeK-iP-Jw5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4We-9U-BII">
+                                <rect key="frame" x="0.0" y="52" width="375" height="615"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="8x3-IE-cwx" id="pbb-mY-tsF"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="ohO-L8-YVC"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapGView" destination="4We-9U-BII" id="aOv-5C-Ive"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YmO-eX-HTT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1048.8" y="1508.9955022488757"/>
         </scene>
         <!--Dynamic View Controller-->
         <scene sceneID="e9t-tT-bfm">

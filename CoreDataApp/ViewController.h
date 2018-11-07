@@ -9,11 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 #import "AppDelegate.h"
+#import <MessageUI/MessageUI.h>
+
+#import <CFNetwork/CFNetwork.h>
 
 
 
 
-@interface ViewController : UIViewController<UITextFieldDelegate>
+@interface ViewController : UIViewController<UITextFieldDelegate,MFMailComposeViewControllerDelegate>
 {
     IBOutlet UIButton *saveData_btn;
     IBOutlet UIButton *fetchResults_btn;
@@ -21,6 +24,10 @@
     IBOutlet UIButton *updateData_btn;
     IBOutlet UIButton *emplistData_btn;
     IBOutlet UIButton *pdfData_btn;
+    
+    IBOutlet UIButton *newSignIn_btn;
+    
+//    SKPSMTPMessage *testMsg;
 }
 
 @property (weak, nonatomic) IBOutlet UITextField *name_txt;
@@ -32,6 +39,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *lastName_txt;
 @property (weak, nonatomic) IBOutlet UIButton *dynamicbtn;
 
+@property (weak, nonatomic) IBOutlet UILabel *localized_Lbl;
 
 - (IBAction)saveData:(id)sender;
 - (IBAction)fetchResults:(id)sender;
@@ -43,6 +51,8 @@
 - (IBAction)scrollView_btn:(id)sender;
 - (IBAction)dynamic_View:(id)sender;
 - (IBAction)radioButton:(id)sender;
+- (IBAction)sendEmail:(id)sender;
+- (IBAction)signInWithFB:(id)sender;
 
 @end
 

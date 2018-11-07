@@ -16,6 +16,8 @@
 #import "DynamicViewController.h"
 #import "ActivityListViewController.h"
 #import "RadioViewController.h"
+#import "GoogleMapViewController.h"
+
 
 API_AVAILABLE(ios(10.0))
 @interface ViewController ()
@@ -31,7 +33,7 @@ API_AVAILABLE(ios(10.0))
 
 @implementation ViewController
 @synthesize name_txt,number_txt,email_txt,location_txt;
-@synthesize firstName_txt,lastName_txt;
+@synthesize firstName_txt,lastName_txt,localized_Lbl;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -44,6 +46,7 @@ API_AVAILABLE(ios(10.0))
     }
     context=appDelegate.persistentContainer.viewContext;
     
+    newSignIn_btn.hidden=YES;
     
     name_txt.delegate=self;
     number_txt.delegate=self;
@@ -64,6 +67,8 @@ API_AVAILABLE(ios(10.0))
     updateData_btn.hidden=YES;
 //    emplistData_btn.hidden=YES;
     pdfData_btn.hidden=YES;
+    
+    localized_Lbl.text=NSLocalizedString(@"Titleofscreen", "Title of screen");
    
 
 }
@@ -281,6 +286,8 @@ API_AVAILABLE(ios(10.0))
     RadioViewController *dynamicVC=[self.storyboard instantiateViewControllerWithIdentifier:@"radioButtonVC"];
     [self.navigationController pushViewController:dynamicVC animated:YES];
 }
+
+
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
    
@@ -321,4 +328,86 @@ API_AVAILABLE(ios(10.0))
         NSLog(@"Error editing  - error:%@",error);
     }
 }
+/*
+-(void)sendEmail
+{
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    //    SKPSMTPMessage *testMsg = [[SKPSMTPMessage alloc] init];
+    testMsg = [[SKPSMTPMessage alloc] init];
+    
+    testMsg.fromEmail = [defaults objectForKey:@"fromEmail"];
+    testMsg.toEmail = [defaults objectForKey:@"toEmail"];
+    testMsg.bccEmail = [defaults objectForKey:@"bccEmal"];
+    testMsg.relayHost = [defaults objectForKey:@"relayHost"];
+    testMsg.requiresAuth = [[defaults objectForKey:@"requiresAuth"] boolValue];
+    
+    if (testMsg.requiresAuth) {
+        testMsg.login = [defaults objectForKey:@"login"];
+        
+        testMsg.pass = [defaults objectForKey:@"pass"];
+    }
+    
+    testMsg.wantsSecure = [[defaults objectForKey:@"wantsSecure"] boolValue]; //
+    testMsg.subject = @"Your Email subject";
+    testMsg.delegate = self;
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [testMsg send];
+    });
+    
+}
+*/
+- (IBAction)sendEmail:(id)sender
+{
+    if ([MFMailComposeViewController canSendMail])
+    {
+        MFMailComposeViewController *mail = [[MFMailComposeViewController alloc] init];
+        mail.mailComposeDelegate = self;
+        [mail setSubject:@"Sample Subject"];
+        [mail setMessageBody:@"Here is some main text in the email!" isHTML:NO];
+        [mail setToRecipients:@[@"rjayasudha086@gmail.com"]];
+        
+        [self presentViewController:mail animated:YES completion:NULL];
+    }
+    else
+    {
+        NSLog(@"This device cannot send email");
+    }
+    
+}
+
+
+
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    switch (result) {
+        case MFMailComposeResultSent:
+            NSLog(@"You sent the email.");
+            break;
+        case MFMailComposeResultSaved:
+            NSLog(@"You saved a draft of this email");
+            break;
+        case MFMailComposeResultCancelled:
+            NSLog(@"You cancelled sending this email.");
+            break;
+        case MFMailComposeResultFailed:
+            NSLog(@"Mail failed:  An error occurred when trying to compose this email");
+            break;
+        default:
+            NSLog(@"An error occurred when trying to compose this email");
+            break;
+    }
+    
+    [self dismissViewControllerAnimated:YES completion:NULL];
+
+}
+
+- (IBAction)signInWithFB:(id)sender
+{
+    GoogleMapViewController *googleMapVC=[self.storyboard instantiateViewControllerWithIdentifier:@"googleMapVC"];
+    [self.navigationController pushViewController:googleMapVC animated:YES];
+}
+
 @end
